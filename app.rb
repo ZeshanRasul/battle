@@ -11,26 +11,26 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player1_name = $Player1.name
-    @player1_hp = $Player1.hit_points
-    @player2_name = $Player2.name
-    @player2_hp = $Player2.hit_points
-    @game = session['game']
+    @game = $game
+    @player1_name = @game.player_1.name
+    @player1_hp = @game.player_1.hit_points
+    @player2_name = @game.player_2.name
+    @player2_hp = @game.player_2.hit_points
     erb(:play)
   end
 
   post '/names' do
-    $Player1 = Player.new(params[:Player_1])
-    $Player2 = Player.new(params[:Player_2])
-    session['game'] = Game.new
+    player_1 = Player.new(params[:Player_1])
+    player_2 = Player.new(params[:Player_2])
+    $game = Game.new(player_1, player_2)
     redirect to('/play')
   end
 
   get '/attack' do
-    @player1_name = $Player1.name
-    @player2_name = $Player2.name
-    @game = session['game']
-    @game.attack($Player2)
+    # @player1_name = $Player1.name
+    # @player2_name = $Player2.name
+    @game = $game
+    @game.attack(@game.player_2)
     erb(:attack)
   end
 

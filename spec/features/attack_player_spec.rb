@@ -15,7 +15,7 @@ feature "Player Attack" do
     sign_in_and_play
     click_button "Attack"
     click_button "Play on..."
-    expect(page).to have_content "Zee: 98hp"
+    expect(page).to have_content "Zee: 90hp"
     expect(page).not_to have_content "Zee: 100hp"
   end
 
