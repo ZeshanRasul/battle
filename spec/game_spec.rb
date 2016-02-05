@@ -8,7 +8,7 @@ describe Game do
   describe '#players' do
     it 'has two players in the game' do
       expect(game.player_1).to eq player1
-      expect(game.player_2).to eq player2 
+      expect(game.player_2).to eq player2
     end
   end
 
@@ -16,6 +16,12 @@ describe Game do
     it 'player1 attacks and sends message to a player2 to receive damage' do
       expect(player2).to receive(:receive_damage)
       game.attack(player2)
+    end
+  end
+
+  describe 'switching turns' do
+    it 'starts the game as player 1s turn' do
+      expect(game.current_turn).to eq player1
     end
   end
 
