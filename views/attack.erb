@@ -1,6 +1,6 @@
 <h1><%= @game.opponent.name %> attacked <%= @game.current_turn.name %> and they lost 10hp</h1>
 <!-- <a href='/play'>Play on...</a> -->
-<% if @game.opponent.dead? %>
+<% if @game.current_turn.dead? %>
   <h1> GAME FUCKING OVER BUDDY</h1>
 
 <% else %>

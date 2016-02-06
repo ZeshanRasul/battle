@@ -1,8 +1,19 @@
-<h1><%= @player1_name %> and <%= @player2_name %> do battle!!!</h1>
+<h1 style="text-align: center;">
+  <%= @player1_name %> and <%= @player2_name %> do battle!!!
+</h1>
 
-<h3><%= "#{@player1_name}: #{@player1_hp}hp" %></h3>  <h3><%= "#{@player2_name}: #{@player2_hp}hp" %></h3>
+<h3 style="text-align:left;">
+  <%= "#{@player1_name}: #{@player1_hp}hp" %>
+</h3>
 
-<h3><%= @game.current_turn.name %>'s turn</h3>
+
+<h3 style="text-align:right;">
+  <%= "#{@player2_name}: #{@player2_hp}hp" %>
+</h3>
+
+<h3 style="text-align:center;">
+  <%= @game.current_turn.name %>'s turn
+</h3>
 
 <form action="/attack">
   <input type="submit" value="Attack"/>
