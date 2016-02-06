@@ -23,7 +23,7 @@ class Game
     if @current_turn == player_1
       @current_turn = player_2
       @opponent = player_1
-    else
+    elsif
       @current_turn = player_1
       @opponent = player_2
     end
